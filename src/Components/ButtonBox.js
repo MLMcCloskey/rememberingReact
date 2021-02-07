@@ -1,39 +1,24 @@
-import React, { Component } from "react";
+import React from "react";
 import Button from './Button'
 
 
 
-class ButtonBox extends Component {
-    constructor(props) {
-        super(props);
-        this.handleClick = this.handleClick.bind(this);
-    }
+const ButtonBox = () => {
 
-    handleClick() {
-        console.log("button clicked!");
-        console.log(this);
-
-        let r = Math.floor(Math.random() * 256);
-        let g = Math.floor(Math.random() * 256);
-        let b = Math.floor(Math.random() * 256);
-        let randomColor = `rgb(${r},${g},${b})`;
-        this.setState({ color: randomColor });
-    }
-
-    render() {
+        let buttons = [{id: 1, color:"red"}, {id: 2, color: "green"}, {id: 3, color: "blue"}, {id: 4, color: "yellow"}, {id: 5, color: "purple"}]
         return (
             <div id="buttons">
-                {this.props.buttons.map(button => {
+                {buttons.map(button => {
                     return <Button 
                                 id={button.id} 
                                 style={{backgroundColor : button.color}} 
-                                onClick={() => this.handleClick()} >
+                                >
                                     Click Me
                             </Button>
                 })}
             </div>
         );
     }
-}
+
 
 export default ButtonBox;
