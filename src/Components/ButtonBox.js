@@ -1,16 +1,12 @@
 import React, { Component } from "react";
+import Button from './Button'
 
 
 
-
-class Button extends Component {
+class ButtonBox extends Component {
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
-    }
-
-    state = {
-        color: this.props.style.backgroundColor,
     }
 
     handleClick() {
@@ -26,19 +22,18 @@ class Button extends Component {
 
     render() {
         return (
-            <div className="buttons">
-                
-                <button className="button"              
-                    id={this.props.id}
-                    style={{backgroundColor : this.state.color}}
-                    onClick={() => this.handleClick()} > 
-                        Click Me
-                </button>
-
-             </div>
-
+            <div id="buttons">
+                {this.props.buttons.map(button => {
+                    return <Button 
+                                id={button.id} 
+                                style={{backgroundColor : button.color}} 
+                                onClick={() => this.handleClick()} >
+                                    Click Me
+                            </Button>
+                })}
+            </div>
         );
     }
 }
 
-export default Button;
+export default ButtonBox;

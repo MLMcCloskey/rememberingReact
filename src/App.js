@@ -1,14 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
-import Button from './Components/Button';
+import ButtonBox from './Components/ButtonBox';
 
 function App() {
+
+  let buttons = [{id: 1, color:"red"}, {id: 2, color: "green"}, {id: 3, color: "blue"}, {id: 4, color: "yellow"}, {id: 5, color: "purple"}]
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        
-        <Button id={"1"} color={"red"}/>
+
+        <ButtonBox buttons={buttons}/>
 
       </header>
     </div>
